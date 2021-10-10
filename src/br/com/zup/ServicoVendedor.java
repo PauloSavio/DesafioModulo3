@@ -19,10 +19,19 @@ public class ServicoVendedor {
             }
         }
     }
-    //verificar cpf repetido
+
+    public static void verificarCpfRepetidoVendedor (String cpf) throws Exception{
+        for (Vendedor referencia: vendedores){
+            if (referencia.getCpf().equals(cpf)){
+                throw new Exception("CPF já cadastrado.");
+            }
+        }
+    }
 
     public static Vendedor cadastrarVendedor(String nome, String email, String cpf)throws Exception{
         verificarArrobaVendedor(email);
+        verificarEmailRepetidoVendedor(email);
+        verificarCpfRepetidoVendedor(cpf);
         Vendedor vendedor = new Vendedor(nome, email, cpf);
         vendedores.add(vendedor);
         return vendedor;

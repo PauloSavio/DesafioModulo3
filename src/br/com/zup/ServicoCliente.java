@@ -19,11 +19,19 @@ public class ServicoCliente {
             }
         }
     }
-    //verificar cpf repetido
+
+    public static void verificarCpfRepetidoCliente (String cpf)throws Exception{
+        for (Cliente referencia: clientes){
+            if (referencia.getCpf().equals(cpf)){
+                throw new Exception("CPF já cadastrado.");
+            }
+        }
+    }
 
     public static Cliente cadastrarCliente(String nome, String email, String cpf) throws Exception{
         verificarArrobaCliente(email);
         verificarEmailRepetidoCliente(email);
+        verificarCpfRepetidoCliente(cpf);
         Cliente cliente = new Cliente(nome, email, cpf);
         clientes.add(cliente);
         return cliente;
