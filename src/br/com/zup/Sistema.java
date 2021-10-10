@@ -12,16 +12,16 @@ public class Sistema {
 
     private static void chamarMenu() {
         System.out.println("\n---- Bem vinde ao sistema de cadastro de vendas ----");
-        System.out.println("\n Escolha uma das opções a seguir:");
-        System.out.println("\n Digite [1] para cadastrar cliente");
-        System.out.println("\n Digite [2] para cadastrar vendedor");
-        System.out.println("\n Digite [3] para cadastrar uma venda");
-        System.out.println("\n Digite [4] para exibir clientes");
-        System.out.println("\n Digite [5] para exibir vendedores");
-        System.out.println("\n Digite [6] para exibir vendas");
-        System.out.println("\n Digite [7] para exibir as compras de um cliente");
-        System.out.println("\n Digite [8] para exibir as vendas de um vendedor");
-        System.out.println("\n Digite [9] para sair do programa");
+        System.out.println("\t Escolha uma das opções a seguir:");
+        System.out.println("\t Digite [1] para cadastrar cliente");
+        System.out.println("\t Digite [2] para cadastrar vendedor");
+        System.out.println("\t Digite [3] para cadastrar uma venda");
+        System.out.println("\t Digite [4] para exibir clientes");
+        System.out.println("\t Digite [5] para exibir vendedores");
+        System.out.println("\t Digite [6] para exibir vendas");
+        System.out.println("\t Digite [7] para exibir as compras de um cliente");
+        System.out.println("\t Digite [8] para exibir as vendas de um vendedor");
+        System.out.println("\t Digite [9] para sair do programa");
     }
 
     public static Cliente cadastrarCliente() throws Exception {
@@ -60,7 +60,48 @@ public class Sistema {
         return vendasDoVendedor;
     }
 
-    //public static boolean executar ()throws Exception{
+    public static boolean executar()throws Exception{
+        boolean opcaoUsuario = true;
 
+        while (opcaoUsuario){
+            chamarMenu();
+            int escolhaMenu = receberDados("Digite sua escolha:").nextInt();
 
+            if(escolhaMenu == 1){
+                cadastrarCliente();
+                System.out.println("Cliente cadastrado com sucesso");
+            }
+            else if (escolhaMenu == 2){
+                cadastrarVendedor();
+                System.out.println("Vendedor cadastrado com sucesso");
+            }
+            else if (escolhaMenu == 3){
+                cadastrarVenda();
+                System.out.println("Venda cadastrado com sucesso");
+            }
+            else if (escolhaMenu == 4){
+                ServicoCliente.exibirClientes();
+            }
+            else if (escolhaMenu == 5){
+                ServicoVendedor.exibirVendedores();
+            }
+            else if (escolhaMenu == 6){
+                ServicoVenda.exibirVendas();
+            }
+            else if (escolhaMenu == 7){
+                System.out.println(pesquisarCompraPorCliente());
+            }
+            else if (escolhaMenu == 8){
+                System.out.println(pesquisarVendaPorVendedor());
+            }
+            else if (escolhaMenu == 9){
+                System.out.println("Obrigado e volte sempre.");
+                opcaoUsuario = false;
+            }
+            else {
+                System.out.println("Opção inválida ");
+            }
+        }
+        return opcaoUsuario;
+    }
 }
