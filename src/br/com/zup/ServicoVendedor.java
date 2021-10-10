@@ -6,7 +6,17 @@ import java.util.List;
 public class ServicoVendedor {
     private static List<Vendedor> vendedores = new ArrayList<>();
 
-    public static Vendedor cadastrarVendedor(String nome, String email, String cpf){
+    public static void verificarArrobaVendedor(String email)throws Exception{
+        if (!email.contains("@")){
+            throw new Exception("E-mail inválido");
+        }
+    }
+
+    //verificar email repetido
+    //verificar cpf repetido
+
+    public static Vendedor cadastrarVendedor(String nome, String email, String cpf)throws Exception{
+        verificarArrobaVendedor(email);
         Vendedor vendedor = new Vendedor(nome, email, cpf);
         vendedores.add(vendedor);
         return vendedor;
@@ -20,4 +30,5 @@ public class ServicoVendedor {
         }
         throw new Exception("Vendedor não cadastrado.");
     }
+
 }

@@ -20,7 +20,7 @@ public class Sistema {
         System.out.println("\n Digite [6] para exibir todas as vendas");
     }
 
-    public static Cliente cadastrarCliente (){
+    public static Cliente cadastrarCliente ()throws Exception{
         String nome = receberDados("Digite o nome do cliente: ").nextLine();
         String email = receberDados("Digite o email do cliente:").nextLine();
         String cpf = receberDados("Digite o CPF do cliente: ").nextLine();
@@ -28,7 +28,7 @@ public class Sistema {
 
     }
 
-    public static Vendedor cadastrarVendedor (){
+    public static Vendedor cadastrarVendedor ()throws Exception{
         String nome = receberDados("Digite o nome do vendedor: ").nextLine();
         String email = receberDados("Digite o email do vendedor:").nextLine();
         String cpf = receberDados("Digite o CPF do vendedor: ").nextLine();
