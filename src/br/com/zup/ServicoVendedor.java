@@ -11,4 +11,12 @@ public class ServicoVendedor {
         vendedores.add(vendedor);
         return vendedor;
     }
+
+    public static Vendedor pesquisarVendedorPorEmail(String email){
+        for (Vendedor referencia: vendedores){
+            if (referencia.getEmail().equals(email)){
+                return referencia
+            }
+        }
+    }
 }

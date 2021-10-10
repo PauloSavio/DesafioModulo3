@@ -33,6 +33,12 @@ public class Sistema {
         String email = receberDados("Digite o email do vendedor:").nextLine();
         String cpf = receberDados("Digite o CPF do vendedor: ").nextLine();
         return ServicoVendedor.cadastrarVendedor(nome, email, cpf);
+    }
 
+    public static Venda cadastrarVenda(){
+        String cpfCliente = receberDados("Digite o CPF do cliente:").nextLine();
+        String emailVendedor = receberDados("Digite o E-mail do vendedor responsável: ").nextLine();
+        double valor = receberDados("Digite o valor da venda:").nextDouble();
+        String data = receberDados("Digite a data data de recebimento da venda:").nextLine()];
     }
 }

@@ -12,5 +12,13 @@ public class ServicoCliente {
         return cliente;
     }
 
+    public static Cliente pesquisarClientePorCpf(String cpf){
+        for (Cliente referencia: clientes){
+            if (referencia.getCpf().equals(cpf)){
+                return referencia;
+            }
+        }
+    }
+
 }
 
