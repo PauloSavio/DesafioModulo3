@@ -12,12 +12,13 @@ public class ServicoCliente {
         return cliente;
     }
 
-    public static Cliente pesquisarClientePorCpf(String cpf){
+    public static Cliente pesquisarClientePorCpf(String cpf) throws Exception{
         for (Cliente referencia: clientes){
             if (referencia.getCpf().equals(cpf)){
                 return referencia;
             }
         }
+        throw new Exception("Cliente não cadastrado.");
     }
 
 }

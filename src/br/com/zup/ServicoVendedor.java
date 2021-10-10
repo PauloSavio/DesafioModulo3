@@ -12,11 +12,12 @@ public class ServicoVendedor {
         return vendedor;
     }
 
-    public static Vendedor pesquisarVendedorPorEmail(String email){
+    public static Vendedor pesquisarVendedorPorEmail(String email) throws Exception{
         for (Vendedor referencia: vendedores){
             if (referencia.getEmail().equals(email)){
-                return referencia
+                return referencia;
             }
         }
+        throw new Exception("Vendedor não cadastrado.");
     }
 }
