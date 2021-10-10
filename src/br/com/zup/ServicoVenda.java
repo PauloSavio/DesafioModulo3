@@ -33,4 +33,10 @@ public class ServicoVenda {
         }
         return vendasDoVendedor;
     }
+
+    public static void exibirVendas (){
+        for (Venda referencia: vendas){
+            System.out.println(referencia);
+        }
+    }
 }

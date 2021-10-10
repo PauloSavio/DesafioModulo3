@@ -46,4 +46,9 @@ public class ServicoVendedor {
         throw new Exception("Vendedor não cadastrado.");
     }
 
+    public static void exibirVendedores(){
+        for (Vendedor referencia: vendedores) {
+            System.out.println(referencia);
+        }
+    }
 }

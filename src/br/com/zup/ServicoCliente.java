@@ -46,7 +46,10 @@ public class ServicoCliente {
         throw new Exception("Cliente não cadastrado.");
     }
 
-
-
+    public static void exibirClientes(){
+        for (Cliente referencia: clientes){
+            System.out.println(referencia);
+        }
+    }
 }
 

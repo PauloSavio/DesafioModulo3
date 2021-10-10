@@ -24,7 +24,7 @@ public class Sistema {
         System.out.println("\n Digite [9] para sair do programa");
     }
 
-    public static Cliente cadastrarCliente ()throws Exception{
+    public static Cliente cadastrarCliente() throws Exception {
         String nome = receberDados("Digite o nome do cliente: ").nextLine();
         String email = receberDados("Digite o email do cliente:").nextLine();
         String cpf = receberDados("Digite o CPF do cliente: ").nextLine();
@@ -32,14 +32,14 @@ public class Sistema {
 
     }
 
-    public static Vendedor cadastrarVendedor ()throws Exception{
+    public static Vendedor cadastrarVendedor() throws Exception {
         String nome = receberDados("Digite o nome do vendedor: ").nextLine();
         String email = receberDados("Digite o email do vendedor:").nextLine();
         String cpf = receberDados("Digite o CPF do vendedor: ").nextLine();
         return ServicoVendedor.cadastrarVendedor(nome, email, cpf);
     }
 
-    public static Venda cadastrarVenda()throws Exception{
+    public static Venda cadastrarVenda() throws Exception {
         String cpfCliente = receberDados("Digite o CPF do cliente:").nextLine();
         String emailVendedor = receberDados("Digite o E-mail do vendedor responsável: ").nextLine();
         double valor = receberDados("Digite o valor da venda:").nextDouble();
@@ -47,13 +47,13 @@ public class Sistema {
         return ServicoVenda.cadastrarVenda(cpfCliente, emailVendedor, valor, data);
     }
 
-    public static List<Venda> pesquisarCompraPorCliente (){
+    public static List<Venda> pesquisarCompraPorCliente() {
         String cpf = receberDados("Digite o CPF do cliente que deseja pesquisar").nextLine();
         List<Venda> comprasDoCliente = ServicoVenda.pesquisarCompraPorCliente(cpf);
         return comprasDoCliente;
     }
 
-    public static List<Venda> pesquisarVendaPorVendedor ()throws Exception{
+    public static List<Venda> pesquisarVendaPorVendedor() throws Exception {
         String email = receberDados("Digite o E-mail do vendedor que deseja pesquisar").nextLine();
         ServicoVendedor.verificarArrobaVendedor(email);
         List<Venda> vendasDoVendedor = ServicoVenda.pesquisarVendaPorVendedor(email);
