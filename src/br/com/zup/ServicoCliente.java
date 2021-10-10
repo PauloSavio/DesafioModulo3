@@ -11,11 +11,19 @@ public class ServicoCliente {
             throw new Exception("E-mail inválido");
         }
     }
-    //verificar email repetido
+
+    public static void verificarEmailRepetidoCliente (String email) throws Exception{
+        for (Cliente referencia: clientes){
+            if (referencia.getEmail().equals(email)){
+                throw new Exception("E-mail já cadastrado.");
+            }
+        }
+    }
     //verificar cpf repetido
 
     public static Cliente cadastrarCliente(String nome, String email, String cpf) throws Exception{
         verificarArrobaCliente(email);
+        verificarEmailRepetidoCliente(email);
         Cliente cliente = new Cliente(nome, email, cpf);
         clientes.add(cliente);
         return cliente;

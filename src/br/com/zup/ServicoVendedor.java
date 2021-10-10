@@ -12,7 +12,13 @@ public class ServicoVendedor {
         }
     }
 
-    //verificar email repetido
+    public static void verificarEmailRepetidoVendedor (String email) throws Exception{
+        for (Vendedor referencia: vendedores){
+            if (referencia.getEmail().equals(email)){
+                throw new Exception("E-mail já cadastrado.");
+            }
+        }
+    }
     //verificar cpf repetido
 
     public static Vendedor cadastrarVendedor(String nome, String email, String cpf)throws Exception{
