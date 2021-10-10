@@ -54,8 +54,8 @@ public class Venda {
     public String toString() {
         StringBuilder retorno = new StringBuilder();
         retorno.append("\nInformações da venda");
-        retorno.append("\nCliente: " + cliente);
-        retorno.append("\nFuncionário responsável: " + vendedor);
+        retorno.append("\nCliente: " + cliente.getNome());
+        retorno.append("\nFuncionário responsável: " + vendedor.getNome());
         retorno.append("\nValor da venda: R$" + valor);
         retorno.append("\nData de registro: " + data);
         return retorno.toString();

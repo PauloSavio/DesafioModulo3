@@ -13,4 +13,24 @@ public class ServicoVenda {
     vendas.add(venda);
     return venda;
     }
+
+    public static List<Venda> pesquisarCompraPorCliente (String cpf){
+        List<Venda> comprasDoCliente = new ArrayList<>();
+        for (Venda referencia: vendas){
+            if (referencia.getCliente().getCpf().equals(cpf)){
+                comprasDoCliente.add(referencia);
+            }
+        }
+        return comprasDoCliente;
+    }
+
+    public static List<Venda> pesquisarVendaPorVendedor (String email){
+        List<Venda> vendasDoVendedor = new ArrayList<>();
+        for (Venda referencia: vendas){
+            if (referencia.getVendedor().getEmail().equals(email)){
+                vendasDoVendedor.add(referencia);
+            }
+        }
+        return vendasDoVendedor;
+    }
 }

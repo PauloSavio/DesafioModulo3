@@ -6,8 +6,10 @@ public class Main {
         try {
             Sistema.cadastrarCliente();
             Sistema.cadastrarVendedor();
-            Venda venda = Sistema.cadastrarVenda();
-            System.out.println(venda);
+            Sistema.cadastrarVenda();
+            System.out.println(Sistema.pesquisarCompraPorCliente());
+            System.out.println(Sistema.pesquisarVendaPorVendedor());
+
         } catch (Exception erro) {
             System.out.println(erro.getMessage());
         }
