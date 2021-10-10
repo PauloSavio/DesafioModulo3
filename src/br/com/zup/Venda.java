@@ -53,6 +53,7 @@ public class Venda {
     @Override
     public String toString() {
         StringBuilder retorno = new StringBuilder();
+        retorno.append("\nInformações da venda");
         retorno.append("\nCliente: " + cliente);
         retorno.append("\nFuncionário responsável: " + vendedor);
         retorno.append("\nValor da venda: R$" + valor);

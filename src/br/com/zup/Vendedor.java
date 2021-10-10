@@ -2,7 +2,8 @@ package br.com.zup;
 
 public class Vendedor extends Pessoa {
 
-    public Vendedor() {
+    public Vendedor(String nome, String email, String cpf) {
+        super(nome, email, cpf);
     }
 
     @Override
