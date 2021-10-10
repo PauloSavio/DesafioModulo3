@@ -19,4 +19,12 @@ public class Sistema {
         System.out.println("\n Digite [5] para exibir todes vendedores");
         System.out.println("\n Digite [6] para exibir todas as vendas");
     }
+
+    public static Cliente cadastrarCliente (){
+        String nome = receberDados("Digite o nome do cliente: ").nextLine();
+        String email = receberDados("Digite o email do cliente:").nextLine();
+        String cpf = receberDados("Digite o CPF do cliente: ").nextLine();
+        return ServicoCliente.cadastrarCliente(nome, email, cpf);
+
+    }
 }
