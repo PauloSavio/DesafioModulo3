@@ -5,11 +5,13 @@ import java.util.Scanner;
 
 public class Sistema {
 
+    //método para capturar dados
     private static Scanner receberDados(String mensagem) {
         System.out.println(mensagem);
         return new Scanner(System.in);
     }
 
+    //opções
     private static void chamarMenu() {
         System.out.println("\n---- Bem vinde ao sistema de cadastro de vendas ----");
         System.out.println("\t Escolha uma das opções a seguir:");
@@ -24,6 +26,7 @@ public class Sistema {
         System.out.println("\t Digite [9] para sair do programa");
     }
 
+    //pegar informações sobre cliente
     public static Cliente cadastrarCliente() throws Exception {
         String nome = receberDados("Digite o nome do cliente: ").nextLine();
         String email = receberDados("Digite o email do cliente:").nextLine();
@@ -32,6 +35,7 @@ public class Sistema {
 
     }
 
+    //pegar informações sobre vendedor
     public static Vendedor cadastrarVendedor() throws Exception {
         String nome = receberDados("Digite o nome do vendedor: ").nextLine();
         String email = receberDados("Digite o email do vendedor:").nextLine();
@@ -39,6 +43,7 @@ public class Sistema {
         return ServicoVendedor.cadastrarVendedor(nome, email, cpf);
     }
 
+    //pegar informações sobre venda
     public static Venda cadastrarVenda() throws Exception {
         String cpfCliente = receberDados("Digite o CPF do cliente:").nextLine();
         String emailVendedor = receberDados("Digite o E-mail do vendedor responsável: ").nextLine();
@@ -47,12 +52,14 @@ public class Sistema {
         return ServicoVenda.cadastrarVenda(cpfCliente, emailVendedor, valor, data);
     }
 
+    //pegar informações da compra
     public static List<Venda> pesquisarCompraPorCliente() {
         String cpf = receberDados("Digite o CPF do cliente que deseja pesquisar").nextLine();
         List<Venda> comprasDoCliente = ServicoVenda.pesquisarCompraPorCliente(cpf);
         return comprasDoCliente;
     }
 
+    //pegar informações da venda
     public static List<Venda> pesquisarVendaPorVendedor() throws Exception {
         String email = receberDados("Digite o E-mail do vendedor que deseja pesquisar").nextLine();
         ServicoVendedor.verificarArrobaVendedor(email);
@@ -60,45 +67,37 @@ public class Sistema {
         return vendasDoVendedor;
     }
 
-    public static boolean executar()throws Exception{
+    //juntar tudo
+    public static boolean executar() throws Exception {
         boolean continuar = true;
 
-        while (continuar){
+        while (continuar) {
             chamarMenu();
             int escolhaMenu = receberDados("Digite sua escolha:").nextInt();
 
-            if(escolhaMenu == 1){
+            if (escolhaMenu == 1) {
                 cadastrarCliente();
                 System.out.println("Cliente cadastrado com sucesso");
-            }
-            else if (escolhaMenu == 2){
+            } else if (escolhaMenu == 2) {
                 cadastrarVendedor();
                 System.out.println("Vendedor cadastrado com sucesso");
-            }
-            else if (escolhaMenu == 3){
+            } else if (escolhaMenu == 3) {
                 cadastrarVenda();
                 System.out.println("Venda cadastrado com sucesso");
-            }
-            else if (escolhaMenu == 4){
+            } else if (escolhaMenu == 4) {
                 ServicoCliente.exibirClientes();
-            }
-            else if (escolhaMenu == 5){
+            } else if (escolhaMenu == 5) {
                 ServicoVendedor.exibirVendedores();
-            }
-            else if (escolhaMenu == 6){
+            } else if (escolhaMenu == 6) {
                 ServicoVenda.exibirVendas();
-            }
-            else if (escolhaMenu == 7){
+            } else if (escolhaMenu == 7) {
                 System.out.println(pesquisarCompraPorCliente());
-            }
-            else if (escolhaMenu == 8){
+            } else if (escolhaMenu == 8) {
                 System.out.println(pesquisarVendaPorVendedor());
-            }
-            else if (escolhaMenu == 9){
+            } else if (escolhaMenu == 9) {
                 System.out.println("Obrigado e volte sempre.");
                 continuar = false;
-            }
-            else {
+            } else {
                 System.out.println("Opção inválida, selecione um número de 1 a 9");
             }
         }

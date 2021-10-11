@@ -6,29 +6,33 @@ import java.util.List;
 public class ServicoVendedor {
     private static List<Vendedor> vendedores = new ArrayList<>();
 
-    public static void verificarArrobaVendedor(String email)throws Exception{
-        if (!email.contains("@")){
+    //email válido
+    public static void verificarArrobaVendedor(String email) throws Exception {
+        if (!email.contains("@")) {
             throw new Exception("E-mail inválido");
         }
     }
 
-    public static void verificarEmailRepetidoVendedor (String email) throws Exception{
-        for (Vendedor referencia: vendedores){
-            if (referencia.getEmail().equals(email)){
+    //email repetido
+    public static void verificarEmailRepetidoVendedor(String email) throws Exception {
+        for (Vendedor referencia : vendedores) {
+            if (referencia.getEmail().equals(email)) {
                 throw new Exception("Esse E-mail já está cadastrado.");
             }
         }
     }
 
-    public static void verificarCpfRepetidoVendedor (String cpf) throws Exception{
-        for (Vendedor referencia: vendedores){
-            if (referencia.getCpf().equals(cpf)){
+    //cpf repetido
+    public static void verificarCpfRepetidoVendedor(String cpf) throws Exception {
+        for (Vendedor referencia : vendedores) {
+            if (referencia.getCpf().equals(cpf)) {
                 throw new Exception("Esse CPF já está cadastrado.");
             }
         }
     }
 
-    public static Vendedor cadastrarVendedor(String nome, String email, String cpf)throws Exception{
+    //jogar vendedor na lista
+    public static Vendedor cadastrarVendedor(String nome, String email, String cpf) throws Exception {
         verificarArrobaVendedor(email);
         verificarEmailRepetidoVendedor(email);
         verificarCpfRepetidoVendedor(cpf);
@@ -38,17 +42,19 @@ public class ServicoVendedor {
         return vendedor;
     }
 
-    public static Vendedor pesquisarVendedorPorEmail(String email) throws Exception{
-        for (Vendedor referencia: vendedores){
-            if (referencia.getEmail().equals(email)){
+    //pesquisa por email
+    public static Vendedor pesquisarVendedorPorEmail(String email) throws Exception {
+        for (Vendedor referencia : vendedores) {
+            if (referencia.getEmail().equals(email)) {
                 return referencia;
             }
         }
         throw new Exception("Vendedor não cadastrado.");
     }
 
-    public static void exibirVendedores(){
-        for (Vendedor referencia: vendedores) {
+    //método de exibição
+    public static void exibirVendedores() {
+        for (Vendedor referencia : vendedores) {
             System.out.println(referencia);
         }
     }
