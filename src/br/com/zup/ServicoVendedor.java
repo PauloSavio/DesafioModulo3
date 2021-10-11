@@ -32,6 +32,7 @@ public class ServicoVendedor {
         verificarArrobaVendedor(email);
         verificarEmailRepetidoVendedor(email);
         verificarCpfRepetidoVendedor(cpf);
+        //tentar estourar exception assim que o email for colocado
         Vendedor vendedor = new Vendedor(nome, email, cpf);
         vendedores.add(vendedor);
         return vendedor;

@@ -61,9 +61,9 @@ public class Sistema {
     }
 
     public static boolean executar()throws Exception{
-        boolean opcaoUsuario = true;
+        boolean continuar = true;
 
-        while (opcaoUsuario){
+        while (continuar){
             chamarMenu();
             int escolhaMenu = receberDados("Digite sua escolha:").nextInt();
 
@@ -96,12 +96,12 @@ public class Sistema {
             }
             else if (escolhaMenu == 9){
                 System.out.println("Obrigado e volte sempre.");
-                opcaoUsuario = false;
+                continuar = false;
             }
             else {
-                System.out.println("Opção inválida ");
+                System.out.println("Opção inválida, selecione um número de 1 a 9");
             }
         }
-        return opcaoUsuario;
+        return continuar;
     }
 }

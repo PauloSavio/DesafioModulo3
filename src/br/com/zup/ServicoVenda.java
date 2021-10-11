@@ -37,6 +37,7 @@ public class ServicoVenda {
     public static void exibirVendas (){
         for (Venda referencia: vendas){
             System.out.println(referencia);
+            //exibir .size?
         }
     }
 }
